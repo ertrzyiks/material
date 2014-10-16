@@ -1,0 +1,20 @@
+$bottom-sheet-color-palette: $color-grey !default;
+$bottom-sheet-background-color: map-get($bottom-sheet-color-palette, '50') !default;
+$bottom-sheet-border-top-color: map-get($bottom-sheet-color-palette, '400') !default;
+$bottom-sheet-header-color: $font-accent-color !default;
+$bottom-sheet-list-color: $font-accent-color !default;
+
+md-bottom-sheet {
+  background-color: $bottom-sheet-background-color;
+  border-top-color: $bottom-sheet-border-top-color;
+
+  &.list {
+    md-item {
+      color: $bottom-sheet-list-color;
+    }
+  }
+
+  h2.md-subheader {
+    color: $bottom-sheet-header-color;
+  }
+}
