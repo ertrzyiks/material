@@ -109,8 +109,8 @@ var config = {
     ' * v' + pkg.version + '\n' +
     ' */\n',
   jsBaseFiles: ['src/core/core.js', 'src/core/util/*.js'],
-  themeBaseFiles: ['src/core/style/variables.scss', 'src/core/style/mixins.scss'],
-  scssBaseFiles: ['src/core/style/variables.scss', 'src/core/style/mixins.scss', 'src/core/style/{structure,layout,table}.scss'],
+  themeBaseFiles: ['src/core/style/color-palette.scss', 'src/core/style/variables.scss', 'src/core/style/mixins.scss'],
+  scssBaseFiles: ['src/core/style/color-palette.scss', 'src/core/style/variables.scss', 'src/core/style/mixins.scss', 'src/core/style/{structure,layout,table}.scss'],
   paths: 'src/{components,services}/**',
   outputDir: 'dist/'
 };
@@ -239,7 +239,11 @@ gulp.task('build-demo', function() {
 });
 
 function buildModuleStyles(name) {
-  var baseStyles = glob(config.themeBaseFiles, { cwd: __dirname }).map(function(fileName) {
+  var files = [];
+  config.themeBaseFiles.forEach(function(fileGlob) {
+    files = files.concat(glob(fileGlob, { cwd: __dirname }));
+  });
+  var baseStyles = files.map(function(fileName) {
     return fs.readFileSync(fileName, 'utf8').toString();
   }).join('\n');
   return lazypipe()
