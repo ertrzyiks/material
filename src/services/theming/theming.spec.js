@@ -30,4 +30,9 @@ describe('$mdTheming service', function() {
     expect(el.hasClass('md-default-theme')).toBe(false);
     expect(el.hasClass('md-awesome-theme')).toBe(true);
   }));
+
+  it('provides the md-themable directive', function() {
+    el = compileAndLink('<h1 md-themable></h1>');
+    expect(el.hasClass('md-default-theme')).toBe(true);
+  });
 });

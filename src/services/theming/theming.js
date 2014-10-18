@@ -9,6 +9,10 @@ angular.module('material.services.theming', [
 .directive('mdTheme', [
   ThemingDirective
 ])
+.directive('mdThemable', [
+  '$mdTheming',
+  ThemableDirective
+])
 .factory('$mdTheming', [
   Theming
 ]);
@@ -50,7 +54,7 @@ function Theming() {
   };
 }
 
-function ThemingDirective($mdTheming) {
+function ThemingDirective() {
   return {
     require: 'mdTheme',
     controller: function ThemeController() {
@@ -63,4 +67,8 @@ function ThemingDirective($mdTheming) {
       attrs.$observe('mdTheme', ctrl.$setTheme);
     }
   };
+}
+
+function ThemableDirective($mdTheming) {
+  return $mdTheming;
 }
