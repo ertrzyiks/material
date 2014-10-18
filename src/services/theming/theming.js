@@ -14,6 +14,7 @@ angular.module('material.services.theming', [
   ThemableDirective
 ])
 .factory('$mdTheming', [
+  '$rootScope',
   Theming
 ]);
 
@@ -41,22 +42,33 @@ angular.module('material.services.theming', [
  *
  */
 
-function Theming() {
+function Theming($rootScope) {
   return function applyTheme(scope, el) {
     // Allow us to be invoked via a linking function signature.
-    if (el === undefined) { el = scope; }
+    if (el === undefined) { 
+      el = scope;
+      scope = undefined;
+    }
+    if (scope === undefined) {
+      scope = $rootScope;
+    }
 
-    var ctrl = el.controller('mdTheme');
+    scope.$watch(function() {
+      var ctrl = el.controller('mdTheme');
+      var theme = ctrl && ctrl.$mdTheme ? ctrl.$mdTheme : 'default';
+      return theme;
+    }, function(theme, oldTheme) {
+      if (oldTheme) el.removeClass('md-' + theme +'-theme');
+      el.addClass('md-' + theme + '-theme');
+    });
 
-    var theme = ctrl && ctrl.$mdTheme ? ctrl.$mdTheme : 'default';
-
-    el.addClass('md-' + theme + '-theme');
   };
 }
 
 function ThemingDirective() {
   return {
     require: 'mdTheme',
+    priority: 100,
     controller: function ThemeController() {
       this.$setTheme = function(theme) {
         this.$mdTheme = theme;

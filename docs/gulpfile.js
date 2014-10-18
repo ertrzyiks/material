@@ -117,7 +117,7 @@ module.exports = function(gulp, argv) {
       'docs/app/css/highlightjs-github.css',
       'docs/app/css/layout-demo.css',
       'docs/app/css/style.css',
-      'dist/themes/default-theme.css'
+      'dist/themes/*.css'
     ])
       .pipe(concat('docs.css'))
       .pipe(gulp.dest('dist/docs'));

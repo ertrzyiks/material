@@ -163,7 +163,7 @@ gulp.task('build-theme', ['build-default-theme'], function() {
   var theme = argv.theme || argv.t || 'default';
   theme = theme.replace(/-theme$/, '');
   gutil.log("Building theme " + theme + "...");
-  return gulp.src(['themes/default-theme.scss', 'themes/' + theme + '-theme.scss'])
+  return gulp.src(['src/core/style/color-palette.scss', 'themes/' + theme + '-theme.scss', 'themes/default-theme.scss'])
     .pipe(concat(theme + '-theme.scss'))
     .pipe(utils.hoistScssVariables())
     .pipe(sass())
