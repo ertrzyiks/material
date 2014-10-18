@@ -295,11 +295,13 @@ $color-blue-grey: (
 );
 $theme-name: 'default' !default;
 $font-family: 'RobotoDraft', 'Helvetica Neue', Helvetica, Arial !default;
-$font-color-palette: $color-grey !default;
-$font-primary-color: map-get($font-color-palette, '800') !default;
-$font-accent-color: map-get($font-color-palette, '500') !default;
-$input-border-color: rgba(map-get($font-color-palette, '1000'), 0.54) !default;
-$input-disabled-border-color: rgba(map-get($font-color-palette, '1000'), 0.26) !default;
+$foreground-color-palette: $color-grey !default;
+$foreground-primary-color: rgba(map-get($foreground-color-palette, '1000'), 0.73) !default;
+$foreground-secondary-color: rgba(map-get($foreground-color-palette, '1000'), 0.54) !default;
+$foreground-tertiary-color: rgba(map-get($foreground-color-palette, '1000'), 0.26) !default;
+$foreground-quarternary-color: rgba(map-get($foreground-color-palette, '1000'), 0.12) !default;
+$input-border-color: $foreground-secondary-color !default;
+$input-disabled-border-color: $foreground-tertiary-color !default;
 $background-color-palette: $color-grey !default;
 $background-color-base: map-get($background-color-palette, 'A100') !default;
 $primary-color-palette: $color-light-blue !default;
@@ -456,13 +458,12 @@ $z-index-backdrop: 7;
 $z-index-tooltip: 6;
 $z-index-fab: 2;
 $z-index-bottom-sheet: $z-index-backdrop + 1;
-$color-divider: 							 rgba(0,0,0,.12) !important;
 $backdrop-color: rgba(0,0,0,0.3);
 $bottom-sheet-color-palette: $background-color-palette !default;
 $bottom-sheet-background-color: map-get($bottom-sheet-color-palette, '50') !default;
 $bottom-sheet-border-top-color: map-get($bottom-sheet-color-palette, '400') !default;
-$bottom-sheet-header-color: $font-accent-color !default;
-$bottom-sheet-list-color: $font-accent-color !default;
+$bottom-sheet-header-color: $foreground-secondary-color !default;
+$bottom-sheet-list-color: $foreground-secondary-color !default;
 $button-border-radius: 3px !default;
 $button-primary-color-palette: $primary-color-palette !default;
 $button-primary-color: map-get($button-primary-color-palette, '400') !default;
@@ -484,7 +485,7 @@ $button-raised-hover-background-color: rgba(map-get($button-raised-color-palette
 $card-border-radius: 2px !default;
 $checkbox-color-palette: $color-green !default;
 $checkbox-checked-background-color: rgba(map-get($checkbox-color-palette, '400'), 0.87) !default;
-$checkbox-checked-color: map-get($font-color-palette, '200') !default;
+$checkbox-checked-color: map-get($foreground-color-palette, '200') !default;
 $checkbox-ripple-color: map-get($checkbox-color-palette, '600') !default;
 $checkbox-checked-ripple-color: map-get($color-grey, '600') !default;
 $checkbox-border-color: $input-border-color !default;
@@ -493,6 +494,7 @@ $dialog-border-radius: 4px !default;
 $dialog-color-palette: $background-color-palette !default;
 $dialog-background-color: map-get($dialog-color-palette, 'A100') !default;
 $dialog-border-color: rgba(map-get($dialog-color-palette, '1000'), 0.12) !default;
+$divider-color: $foreground-quarternary-color !default;
 $toast-height: 20px !default;
 
 // Pink
@@ -580,6 +582,7 @@ $toast-height: 20px !default;
 
 
 // Font Variables
+
 
 
 
@@ -692,7 +695,6 @@ $toast-height: 20px !default;
 
 // Text
 // ----------------------------
-
 
 // Red
 // ----------------------------
@@ -899,6 +901,11 @@ md-dialog.md-#{$theme-name}-theme {
   }
 }
 
+
+
+md-divider.md-#{$theme-name}-theme {
+  border-top-color: $divider-color;
+}
 
 
 md-toast {
