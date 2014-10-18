@@ -1,8 +1,28 @@
+$button-disabled-background: rgb(234, 234, 234);
+$button-disabled-color: rgb(168, 168, 168);
+$button-raised-background: rgb(223, 223, 233);
+$button-raised-colored-color: #fff;
+$button-raised-colored-background: $theme-light;
+
+$button-hover-background: rgb(228, 228, 228);
+$button-raised-hover-background: rgb(214, 214, 214);
+$button-raised-colored-hover-background: #3367d6;
+
+$button-line-height: 25px;
+$button-padding: 2px 6px 3px;
+
+// Fab buttons
+$button-fab-width: 56px;
+$button-fab-height: 56px;
+$button-fab-border-radius: 28px;
+$button-fab-padding: 16px;
+$button-fab-toast-offset: $toast-height + $toast-margin;
+
 /**
  * Position a FAB button.
  */
 @mixin fab-position($spot, $top: auto, $right: auto, $bottom: auto, $left: auto) {
-  &.md-button-fab-#{$spot} {
+  &.md-fab-#{$spot} {
     top: $top;
     right: $right;
     bottom: $bottom;
@@ -22,7 +42,6 @@ md-button {
   padding: 0;
   margin: 0;
 
-  border-radius: $button-border-radius;
   text-align: center;
 
   // Always uppercase buttons
@@ -71,61 +90,26 @@ md-button {
   }
 
 
-  &.md-button-colored {
-    color: $theme-light;
-    fill: $theme-light;
-  }
-
-  &.md-button-cornered {
+  &.md-cornered {
     border-radius: 0;
   }
 
-  &:not([disabled]) {
-    &:hover, 
-    // Uses a .focus class because the child button/a is getting the actual focus
-    &.focus {
-      background-color: $button-hover-background;
-    }
-  }
-
-  &[disabled] {
-    background-color: $button-disabled-background !important;
-    color: $button-disabled-color !important;
-    cursor: auto;
-  }
-
-  &.md-button-icon {
+  &.md-icon {
     padding: 0;
     background: none;
   }
 
-  &.md-button-raised {
-    background-color: $button-raised-background;
-
+  &.md-raised {
     transition: 0.2s linear;
     transition-property: box-shadow, transform, background-color;
     transform: translate3d(0, 0, 0);
 
     &:not([disabled]) {
       @extend .md-shadow-bottom-z-1;
-      &:hover,
-      &.focus {
-        background-color: $button-raised-hover-background;
-      }
-    }
-
-    &.md-button-colored {
-      background-color: $button-raised-colored-background;
-      color: $button-raised-colored-color;
-
-      &:hover:not([disabled]),
-      &.focus {
-        background-color: $button-raised-colored-hover-background;
-      }
     }
   }
 
-  &.md-button-fab {
+  &.md-fab {
 
     @include fab-position(bottom-right, auto, $button-fab-width/2, $button-fab-height/2, auto);
     @include fab-position(bottom-left, auto, auto, $button-fab-height/2, $button-fab-width/2);
@@ -151,8 +135,8 @@ md-button {
   }
 
   &:not([disabled]) {
-    &.md-button-raised,
-    &.md-button-fab {
+    &.md-raised,
+    &.md-fab {
       &.focus,
       &:hover {
         transform: translate3d(0, -1px, 0);

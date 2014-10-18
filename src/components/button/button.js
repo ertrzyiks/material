@@ -8,13 +8,15 @@
 angular.module('material.components.button', [
   'material.core',
   'material.animations',
-  'material.services.aria'
+  'material.services.aria',
+  'material.services.theming'
 ])
   .directive('mdButton', [
     'ngHrefDirective',
     '$mdInkRipple',
     '$mdAria',
     '$mdUtil',
+    '$mdTheming',
     MdButtonDirective
   ]);
 
@@ -48,7 +50,7 @@ angular.module('material.components.button', [
  *  </md-button>
  * </hljs>
  */
-function MdButtonDirective(ngHrefDirectives, $mdInkRipple, $mdAria, $mdUtil ) {
+function MdButtonDirective(ngHrefDirectives, $mdInkRipple, $mdAria, $mdUtil, $mdTheming ) {
   var ngHrefDirective = ngHrefDirectives[0];
 
   return {
@@ -56,6 +58,8 @@ function MdButtonDirective(ngHrefDirectives, $mdInkRipple, $mdAria, $mdUtil ) {
     compile: function(element, attr) {
       var innerElement;
       var attributesToCopy;
+
+      $mdTheming(element);
 
       // Add an inner anchor if the element has a `href` or `ngHref` attribute,
       // so this element can be clicked like a normal `<a>`.

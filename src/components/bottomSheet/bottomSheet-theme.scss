@@ -1,10 +1,10 @@
-$bottom-sheet-color-palette: $color-grey !default;
+$bottom-sheet-color-palette: $background-color-palette !default;
 $bottom-sheet-background-color: map-get($bottom-sheet-color-palette, '50') !default;
 $bottom-sheet-border-top-color: map-get($bottom-sheet-color-palette, '400') !default;
 $bottom-sheet-header-color: $font-accent-color !default;
 $bottom-sheet-list-color: $font-accent-color !default;
 
-md-bottom-sheet {
+md-bottom-sheet.md-#{$theme-name}-theme {
   background-color: $bottom-sheet-background-color;
   border-top-color: $bottom-sheet-border-top-color;
 

@@ -1,4 +1,5 @@
 $backdrop-color: rgba(0,0,0,0.3);
-md-backdrop.opaque {
+
+md-backdrop.opaque.md-#{$theme-name}-theme {
   background-color: $backdrop-color;
 }

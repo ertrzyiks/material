@@ -1,9 +1,17 @@
+$theme-name: 'default' !default;
+
 // Font Variables
 $font-family: 'RobotoDraft', 'Helvetica Neue', Helvetica, Arial !default;
-$font-primary-color: map-get($color-grey, '800') !default;
-$font-accent-color: map-get($color-grey, '500') !default;
 
-$background-color-base: #fff !default;
+$font-color-palette: $color-grey !default;
+$font-primary-color: map-get($font-color-palette, '800') !default;
+$font-accent-color: map-get($font-color-palette, '500') !default;
+
+$background-color-palette: $color-grey !default;
+$background-color-base: map-get($background-color-palette, 'A100') !default;
+
+$primary-color-palette: $color-light-blue !default;
+$warn-color-palette: $color-red !default;
 
 // Font colors
 $text-light: #f1f1f1;
@@ -61,29 +69,6 @@ $layout-gutter-width:      ($baseline-grid * 2) !default;
 $toast-height: $baseline-grid * 3;
 $toast-margin: $baseline-grid * 1;
 
-
-// Button
-//--------------------------------------------
-$button-border-radius: 3px;
-$button-disabled-background: rgb(234, 234, 234);
-$button-disabled-color: rgb(168, 168, 168);
-$button-raised-background: rgb(223, 223, 233);
-$button-raised-colored-color: #fff;
-$button-raised-colored-background: $theme-light;
-
-$button-hover-background: rgb(228, 228, 228);
-$button-raised-hover-background: rgb(214, 214, 214);
-$button-raised-colored-hover-background: #3367d6;
-
-$button-line-height: 25px;
-$button-padding: 2px 6px 3px;
-
-// Fab buttons
-$button-fab-width: 56px;
-$button-fab-height: 56px;
-$button-fab-border-radius: 28px;
-$button-fab-padding: 16px;
-$button-fab-toast-offset: $toast-height + $toast-margin;
 
 // App bar variables
 $app-bar-height: 64px;

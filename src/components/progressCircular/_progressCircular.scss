@@ -1,6 +1,6 @@
 $circle-size:48px;
 $circle-background:transparent;
-$circle-color:$color-blue-500;
+$circle-color: map-get($color-blue, '500');
 $inset-size:36px;
 $inset-color:white;
 $transition-length:.3s;
