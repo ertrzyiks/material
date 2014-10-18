@@ -5,6 +5,18 @@ angular.module('dialogDemo1', ['ngMaterial'])
 
   $scope.dialogBasic = function(ev) {
     $mdDialog.show({
+      templateUrl: 'dialog3.tmpl.html',
+      targetEvent: ev,
+      controller: DialogController
+    }).then(function() {
+      $scope.alert = 'You said "Okay".';
+    }, function() {
+      $scope.alert = 'You cancelled the dialog.';
+    });
+  };
+
+  $scope.dialogLong = function(ev) {
+    $mdDialog.show({
       templateUrl: 'dialog1.tmpl.html',
       targetEvent: ev,
       controller: DialogController
@@ -31,6 +43,10 @@ angular.module('dialogDemo1', ['ngMaterial'])
 function DialogController($scope, $mdDialog) {
   $scope.hide = function() {
     $mdDialog.hide();
+  };
+
+  $scope.cancel = function() {
+    $mdDialog.cancel();
   };
 
   $scope.answer = function(answer) {
