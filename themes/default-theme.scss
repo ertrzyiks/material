@@ -366,22 +366,6 @@ $subheader-font-weight: 400;
 $subheader-margin: 0 0 0 0;
 $subheader-margin-right: 16px;
 $subheader-sticky-shadow: 0px 2px 4px 0 rgba(0,0,0,0.16);
-$list-h3-font-size: 1.1em;
-$list-h3-margin: 0 0 3px 0;
-$list-h3-font-weight: 400;
-$list-h4-font-size: 0.9em;
-$list-h4-font-weight: 400;
-$list-h4-margin: 0 0 3px 0;
-$list-p-font-size: 0.75em;
-$list-p-margin: 0 0 3px 0;
-$list-padding-top: $baseline-grid;
-$list-padding-right: 0px;
-$list-padding-left: 0px;
-$list-padding-bottom: $baseline-grid;
-$item-padding-top: 0px;
-$item-padding-right: 0px;
-$item-padding-left: 0px;
-$item-padding-bottom: 0px;
 $tabs-paginator-width: $baseline-grid * 4 !default;
 $tabs-tab-width: $baseline-grid * 12 !default;
 $tabs-header-height: 48px;
@@ -495,6 +479,12 @@ $dialog-color-palette: $background-color-palette !default;
 $dialog-background-color: map-get($dialog-color-palette, 'A100') !default;
 $dialog-border-color: rgba(map-get($dialog-color-palette, '1000'), 0.12) !default;
 $divider-color: $foreground-quarternary-color !default;
+$progress-circle-background: transparent !default;
+$progress-circle-color: map-get($primary-color-palette, '500') !default;
+$progress-circle-inset-color: $background-color-base !default;
+$progress-linear-color-palette: $primary-color-palette !default;
+$progress-linear-color: map-get($progress-linear-color-palette, '500') !default;
+$progress-linear-alt-color: map-get($progress-linear-color-palette, '100') !default;
 $toast-height: 20px !default;
 
 // Pink
@@ -622,14 +612,6 @@ $toast-height: 20px !default;
 
 
 // SubHeader
-
-
-// Lists and tiles
-
-
-
-
-// Cards
 
 
 // Tabs
@@ -905,6 +887,38 @@ md-dialog.md-#{$theme-name}-theme {
 
 md-divider.md-#{$theme-name}-theme {
   border-top-color: $divider-color;
+}
+
+
+md-progress-circular.md-#{$theme-name}-theme {
+  background-color: $progress-circle-background;
+  .circle .mask .fill {
+    background-color: $progress-circle-color;
+  }
+
+  .inset {
+    background-color: $progress-circle-inset-color;
+  }
+}
+
+
+md-progress-linear.md-#{$theme-name}-theme {
+  .container {
+    background-color: $progress-linear-alt-color;
+  }
+
+  .bar {
+    background-color: $progress-linear-color;
+  }
+
+  &[mode=buffer] {
+    .dashed:before {
+      background: radial-gradient($progress-linear-alt-color 0%, $progress-linear-alt-color 16%, transparent 42%);
+    }
+    .bar1 {
+      background-color: $progress-linear-alt-color;
+    }
+  }
 }
 
 
