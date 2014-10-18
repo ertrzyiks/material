@@ -7,6 +7,9 @@ $font-color-palette: $color-grey !default;
 $font-primary-color: map-get($font-color-palette, '800') !default;
 $font-accent-color: map-get($font-color-palette, '500') !default;
 
+$input-border-color: rgba(map-get($font-color-palette, '1000'), 0.54) !default;
+$input-disabled-border-color: rgba(map-get($font-color-palette, '1000'), 0.26) !default;
+
 $background-color-palette: $color-grey !default;
 $background-color-base: map-get($background-color-palette, 'A100') !default;
 
@@ -132,11 +135,6 @@ $item-padding-bottom: 0px;
 
 // Cards
 
-$card-border-radius: 2px;
-$card-border: 1px solid #eee;
-$card-padding: 8px;
-$card-margin: 8px;
-$card-box-shadow: $whiteframe-shadow-z1;
 
 // Tabs
 $tabs-paginator-width: $baseline-grid * 4 !default;
@@ -212,8 +210,6 @@ $input-focused-scale: 0.85;
 
 $input-label-transition: all ease-out 300ms;
 
-$input-border-color: #6D6D6D;
-$input-disabled-border-color: #a0a0a0;
 $input-focused-border-color: $text-dark;
 
 // Slider

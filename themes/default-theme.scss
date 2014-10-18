@@ -298,6 +298,8 @@ $font-family: 'RobotoDraft', 'Helvetica Neue', Helvetica, Arial !default;
 $font-color-palette: $color-grey !default;
 $font-primary-color: map-get($font-color-palette, '800') !default;
 $font-accent-color: map-get($font-color-palette, '500') !default;
+$input-border-color: rgba(map-get($font-color-palette, '1000'), 0.54) !default;
+$input-disabled-border-color: rgba(map-get($font-color-palette, '1000'), 0.26) !default;
 $background-color-palette: $color-grey !default;
 $background-color-base: map-get($background-color-palette, 'A100') !default;
 $primary-color-palette: $color-light-blue !default;
@@ -378,11 +380,6 @@ $item-padding-top: 0px;
 $item-padding-right: 0px;
 $item-padding-left: 0px;
 $item-padding-bottom: 0px;
-$card-border-radius: 2px;
-$card-border: 1px solid #eee;
-$card-padding: 8px;
-$card-margin: 8px;
-$card-box-shadow: $whiteframe-shadow-z1;
 $tabs-paginator-width: $baseline-grid * 4 !default;
 $tabs-tab-width: $baseline-grid * 12 !default;
 $tabs-header-height: 48px;
@@ -428,8 +425,6 @@ $input-label-focused-font-size: 0.7em;
 $input-label-focused-color: $text-dark;
 $input-focused-scale: 0.85;
 $input-label-transition: all ease-out 300ms;
-$input-border-color: #6D6D6D;
-$input-disabled-border-color: #a0a0a0;
 $input-focused-border-color: $text-dark;
 $slider-background-color:  rgb(200, 200, 200);
 $slider-height:  48px;
@@ -486,6 +481,14 @@ $button-hover-background-color: rgba(map-get($button-flat-color-palette, '500'),
 $button-raised-color-palette: $button-flat-color-palette !default;
 $button-raised-background-color: rgba(map-get($button-raised-color-palette, '500'), 0.185) !default;
 $button-raised-hover-background-color: rgba(map-get($button-raised-color-palette, '500'), 0.30) !default;
+$card-border-radius: 2px !default;
+$checkbox-color-palette: $color-green !default;
+$checkbox-checked-background-color: rgba(map-get($checkbox-color-palette, '400'), 0.87) !default;
+$checkbox-checked-color: map-get($font-color-palette, '200') !default;
+$checkbox-ripple-color: map-get($checkbox-color-palette, '600') !default;
+$checkbox-checked-ripple-color: map-get($color-grey, '600') !default;
+$checkbox-border-color: $input-border-color !default;
+$checkbox-disabled-border-color: $input-disabled-border-color !default;
 $toast-height: 20px !default;
 
 // Pink
@@ -573,6 +576,7 @@ $toast-height: 20px !default;
 
 
 // Font Variables
+
 
 
 
@@ -834,6 +838,49 @@ md-button.md-#{$theme-name}-theme {
           background-color: $button-warn-raised-hover-background-color;
         }
       }
+    }
+  }
+}
+
+
+md-card.md-#{$theme-name}-theme {
+  border-radius: $card-border-radius;
+
+  .md-card-image {
+    border-radius: $card-border-radius $card-border-radius 0 0;
+  }
+}
+
+
+md-checkbox.md-#{$theme-name}-theme {
+
+  .md-ripple {
+    color: $checkbox-ripple-color;
+  }
+
+  &.md-checked .md-ripple {
+    color: $checkbox-checked-ripple-color;
+  }
+
+  .md-icon {
+    border-color: $checkbox-border-color;
+  }
+
+  &.md-checked .md-icon {
+    background-color: $checkbox-checked-background-color;
+  }
+
+  &.md-checked .md-icon:after {
+    border-color: $checkbox-checked-color;
+  }
+
+  &[disabled] {
+    .md-icon {
+      border-color: $checkbox-disabled-border-color;
+    }
+
+    &.md-checked .md-icon {
+      background-color: $checkbox-disabled-border-color;
     }
   }
 }
