@@ -9,6 +9,7 @@ var gulp = require('gulp');
 var karma = require('karma').server;
 var pkg = require('./package.json');
 var exec = require('child_process').exec;
+var mergeStream = require('merge-stream');
 
 var argv = require('minimist')(process.argv.slice(2));
 
@@ -121,7 +122,7 @@ var config = {
  * Project wide build related tasks
  */
 
-gulp.task('build', ['build-theme', 'build-scss', 'build-js'], function() {
+gulp.task('build', ['build-themes', 'build-scss', 'build-js'], function() {
 });
 
 gulp.task('watch', ['build'], function() {
@@ -162,13 +163,27 @@ gulp.task('build-default-theme', function() {
 gulp.task('build-theme', ['build-default-theme'], function() {
   var theme = argv.theme || argv.t || 'default';
   theme = theme.replace(/-theme$/, '');
+  return buildTheme(theme);
+});
+
+gulp.task('build-themes', ['build-default-theme'], function() {
+  var stream = mergeStream();
+  var themes = glob('themes/*.scss', { cwd: __dirname });
+  themes.forEach(function(themeFile) {
+    var name = themeFile.match(/(\w+)-theme\.scss/)[1];
+    stream.add(buildTheme(name));
+  });
+  return stream;
+});
+
+function buildTheme(theme) {
   gutil.log("Building theme " + theme + "...");
   return gulp.src(['src/core/style/color-palette.scss', 'themes/' + theme + '-theme.scss', 'themes/default-theme.scss'])
     .pipe(concat(theme + '-theme.scss'))
     .pipe(utils.hoistScssVariables())
     .pipe(sass())
     .pipe(gulp.dest(config.outputDir + 'themes/'));
-});
+}
 
 gulp.task('build-scss', function() {
   var scssGlob = path.join(config.paths, '*.scss');
