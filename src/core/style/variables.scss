@@ -181,26 +181,6 @@ $input-label-transition: all ease-out 300ms;
 
 $input-focused-border-color: $text-dark;
 
-// Slider
-//--------------------------------------------
-
-
-// Switch
-//--------------------------------------------
-
-$switch-width: $baseline-grid * 8;
-
-
-// Checkbox
-//--------------------------------------------
-
-$checkbox-width: 18px;
-$checkbox-height: $checkbox-width;
-
-
-// Radio Button
-//--------------------------------------------
-
 
 // Z-indexes
 //--------------------------------------------
@@ -212,13 +192,3 @@ $z-index-backdrop: 7;
 $z-index-tooltip: 6;
 $z-index-fab: 2;
 $z-index-bottom-sheet: $z-index-backdrop + 1;
-
-// Md Design Color Palette
-// -----------------------------
-// http://www.google.com/design/spec/style/color.html
-
-// Text
-// ----------------------------
-
-// Red
-// ----------------------------

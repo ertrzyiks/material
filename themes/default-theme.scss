@@ -402,9 +402,6 @@ $input-label-focused-color: $text-dark;
 $input-focused-scale: 0.85;
 $input-label-transition: all ease-out 300ms;
 $input-focused-border-color: $text-dark;
-$switch-width: $baseline-grid * 8;
-$checkbox-width: 18px;
-$checkbox-height: $checkbox-width;
 $z-index-dialog: 10;
 $z-index-toast: 9;
 $z-index-sidenav: 8;
@@ -472,6 +469,8 @@ $slider-disabled-color: map-get($foreground-color-palette, '400') !default;
 $subheader-color-palette: $primary-color-palette !default;
 $subheader-text-color: $foreground-secondary-color !default;
 $subheader-primary-text-color: map-get($subheader-color-palette, '500') !default;
+$switch-color: $foreground-secondary-color !default;
+$switch-focus-color: map-get($foreground-color-palette, '1000');
 $toast-height: 20px !default;
 
 // Pink
@@ -631,37 +630,10 @@ $toast-height: 20px !default;
 
 
 
-// Slider
-//--------------------------------------------
-
-
-// Switch
-//--------------------------------------------
-
-
-
-// Checkbox
-//--------------------------------------------
-
-
-
-// Radio Button
-//--------------------------------------------
-
 
 // Z-indexes
 //--------------------------------------------
 
-
-// Md Design Color Palette
-// -----------------------------
-// http://www.google.com/design/spec/style/color.html
-
-// Text
-// ----------------------------
-
-// Red
-// ----------------------------
 
 @mixin margin-selectors($before:1em, $after:1em, $start:0px, $end:0px) {
   -webkit-margin-before: $before;
@@ -905,7 +877,7 @@ md-progress-linear.md-#{$theme-name}-theme {
 
 
 md-radio-button.md-#{$theme-name}-theme,
-md-switch.md-switch-thumb.md-#{$theme-name}-theme {
+md-switch.md-#{$theme-name}-theme .md-switch-thumb {
   .md-container .md-ripple {
     color: $radio-ripple-color;
   }
@@ -992,6 +964,18 @@ md-slider.md-#{$theme-name}-theme {
 
   &.md-primary {
     color: $subheader-primary-text-color;
+  }
+}
+
+
+md-switch.md-#{$theme-name}-theme {
+  .md-switch-bar {
+    background-color: $switch-color;
+  }
+  .md-switch-thumb {
+    &:focus .md-label {
+      border: 1px dotted black;
+    }
   }
 }
 

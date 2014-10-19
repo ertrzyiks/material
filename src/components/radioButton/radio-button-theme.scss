@@ -5,7 +5,7 @@ $radio-off-border-color: $foreground-secondary-color !default;
 $radio-group-focus-border-color: $foreground-primary-color !default;
 
 md-radio-button.md-#{$theme-name}-theme,
-md-switch.md-switch-thumb.md-#{$theme-name}-theme {
+md-switch.md-#{$theme-name}-theme .md-switch-thumb {
   .md-container .md-ripple {
     color: $radio-ripple-color;
   }
