@@ -1,3 +1,7 @@
+$sidenav-shadow: 0px 0px 5px rgba(0,0,0,0.4);
+$sidenav-default-width: 304px;
+$sidenav-min-room: 56px;
+
 md-sidenav {
   position: absolute;
 
@@ -9,10 +13,6 @@ md-sidenav {
   transition: transform 0.3s ease-in-out;
 
   @extend .md-sidenav-left;
-
-  // &.closed {
-  //   display: none;
-  // }
 }
 
 .md-sidenav-left {

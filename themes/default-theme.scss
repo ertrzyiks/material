@@ -433,8 +433,6 @@ $slider-sign-top: ($slider-height / 2) - ($slider-thumb-default-scale * $slider-
 $switch-width: $baseline-grid * 8;
 $checkbox-width: 18px;
 $checkbox-height: $checkbox-width;
-$radio-width: 16px;
-$radio-height: $radio-width;
 $z-index-dialog: 10;
 $z-index-toast: 9;
 $z-index-sidenav: 8;
@@ -485,6 +483,11 @@ $progress-circle-inset-color: $background-color-base !default;
 $progress-linear-color-palette: $primary-color-palette !default;
 $progress-linear-color: map-get($progress-linear-color-palette, '500') !default;
 $progress-linear-alt-color: map-get($progress-linear-color-palette, '100') !default;
+$radio-color-palette: $color-green !default;
+$radio-on-background-color: rgba(map-get($radio-color-palette, '400'), 0.87) !default;
+$radio-ripple-color: map-get($radio-color-palette, '600') !default;
+$radio-off-border-color: $foreground-secondary-color;
+$radio-group-focus-border-color: $foreground-primary-color;
 $toast-height: 20px !default;
 
 // Pink
@@ -919,6 +922,35 @@ md-progress-linear.md-#{$theme-name}-theme {
       background-color: $progress-linear-alt-color;
     }
   }
+}
+
+
+md-radio-button.md-#{$theme-name}-theme,
+md-switch.md-switch-thumb.md-#{$theme-name}-theme {
+  .md-container .md-ripple {
+    color: $radio-ripple-color;
+  }
+
+  .md-off {
+    border-color: $radio-off-border-color;
+  }
+
+
+  .md-on {
+    background-color: $radio-on-background-color;
+  }
+
+  &.md-checked .md-off {
+    border-color: $radio-on-background-color;
+  }
+
+  &.md-checked .md-ink-ripple {
+    color: $radio-on-background-color;
+  }
+}
+
+md-radio-group.md-#{$theme-name}-theme:focus {
+  border-color: $radio-group-focus-border-color;
 }
 
 
