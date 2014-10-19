@@ -356,9 +356,6 @@ $whiteframe-shadow-z4: 0px 16px 28px 0 rgba(0,0,0,0.22);
 $whiteframe-zindex-z4: 4;
 $whiteframe-shadow-z5: 0px 27px 24px 0 rgba(0,0,0,0.2);
 $whiteframe-zindex-z5: 5;
-$tabs-paginator-width: $baseline-grid * 4 !default;
-$tabs-tab-width: $baseline-grid * 12 !default;
-$tabs-header-height: 48px;
 $tff-font-size: 0.75em;
 $tff-line-height:26px;
 $tff-margin: 10px 0 10px 0;
@@ -471,6 +468,13 @@ $subheader-text-color: $foreground-secondary-color !default;
 $subheader-primary-text-color: map-get($subheader-color-palette, '500') !default;
 $switch-color: $foreground-secondary-color !default;
 $switch-focus-color: map-get($foreground-color-palette, '1000');
+$tabs-color-palette: $primary-color-palette !default;
+$tabs-header-background-color: map-get($tabs-color-palette, '500') !default;
+$tabs-inactive-color: rgba($background-color-base, 0.6) !default;
+$tabs-active-color: map-get($foreground-color-palette, 'A100') !default;
+$tabs-disabled-color: $foreground-quarternary-color !default;
+$tabs-focus-color: $foreground-primary-color !default;
+$tabs-highlight-color: #ffff85;
 $toast-height: 20px !default;
 
 // Pink
@@ -600,7 +604,7 @@ $toast-height: 20px !default;
 // SubHeader
 
 
-// Tabs
+
 
 
 // ***********************************
@@ -975,6 +979,34 @@ md-switch.md-#{$theme-name}-theme {
   .md-switch-thumb {
     &:focus .md-label {
       border: 1px dotted black;
+    }
+  }
+}
+
+
+md-tabs.md-#{$theme-name}-theme {
+  .tabs-header {
+    background-color: $tabs-header-background-color;
+  }
+
+  md-tabs-ink-bar {
+    background: $tabs-highlight-color;
+  }
+
+  md-tab {
+    color: $tabs-inactive-color;
+    &.active {
+      color: $tabs-active-color;
+    }
+    &[disabled] {
+      color: $tabs-disabled-color;
+    }
+    &:focus {
+      border-color: $tabs-focus-color;
+    }
+
+    .md-ripple-container {
+      color: $tabs-highlight-color;
     }
   }
 }
