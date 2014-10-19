@@ -346,9 +346,6 @@ $toolbar-height: 64px;
 $toolbar-medium-tall-height: 88px;
 $toolbar-tall-height: 192px;
 $toolbar-indent-margin: 64px;
-$sidenav-shadow: 0px 0px 5px rgba(0,0,0,0.4);
-$sidenav-default-width: 304px;
-$sidenav-min-room: 56px;
 $whiteframe-shadow-z1: 0px 2px 5px 0 rgba(0,0,0,0.26);
 $whiteframe-zindex-z1: 1;
 $whiteframe-shadow-z2: 0px 8px 17px rgba(0,0,0,0.2);
@@ -412,24 +409,6 @@ $input-label-focused-color: $text-dark;
 $input-focused-scale: 0.85;
 $input-label-transition: all ease-out 300ms;
 $input-focused-border-color: $text-dark;
-$slider-background-color:  rgb(200, 200, 200);
-$slider-height:  48px;
-$slider-track-height:  2px;
-$slider-thumb-width:  32px;
-$slider-thumb-height:  $slider-thumb-width;
-$slider-thumb-default-scale: 0.5;
-$slider-thumb-hover-scale: 0.6;
-$slider-thumb-focus-scale: 0.85;
-$slider-thumb-disabled-scale: 0.35;
-$slider-thumb-disabled-border: 6px;
-$slider-focus-thumb-width:  48px;
-$slider-focus-thumb-height: $slider-focus-thumb-width;
-$slider-focus-ring-border-width: 3px;
-$slider-arrow-height: 16px;
-$slider-arrow-width: 28px;
-$slider-sign-height: 28px;
-$slider-sign-width: 28px;
-$slider-sign-top: ($slider-height / 2) - ($slider-thumb-default-scale * $slider-thumb-height / 2) - ($slider-sign-height) - ($slider-arrow-height) + 8px;
 $switch-width: $baseline-grid * 8;
 $checkbox-width: 18px;
 $checkbox-height: $checkbox-width;
@@ -486,8 +465,17 @@ $progress-linear-alt-color: map-get($progress-linear-color-palette, '100') !defa
 $radio-color-palette: $color-green !default;
 $radio-on-background-color: rgba(map-get($radio-color-palette, '400'), 0.87) !default;
 $radio-ripple-color: map-get($radio-color-palette, '600') !default;
-$radio-off-border-color: $foreground-secondary-color;
-$radio-group-focus-border-color: $foreground-primary-color;
+$radio-off-border-color: $foreground-secondary-color !default;
+$radio-group-focus-border-color: $foreground-primary-color !default;
+$slider-color-palette: $primary-color-palette !default;
+$slider-background-color: $foreground-tertiary-color !default;
+$slider-track-color: map-get($slider-color-palette, '500') !default;
+$slider-thumb-color: map-get($slider-color-palette, '500') !default;
+$slider-sign-color: map-get($slider-color-palette, '500') !default;
+$slider-sign-text-color: map-get($foreground-color-palette, 'A100') !default;
+$slider-focus-thumb-color: $foreground-secondary-color !default;
+$slider-focus-ring-color: $foreground-quarternary-color !default;
+$slider-disabled-color: map-get($foreground-color-palette, '400') !default;
 $toast-height: 20px !default;
 
 // Pink
@@ -649,11 +637,6 @@ $toast-height: 20px !default;
 
 // Slider
 //--------------------------------------------
-
-
-
-
-
 
 
 // Switch
@@ -951,6 +934,59 @@ md-switch.md-switch-thumb.md-#{$theme-name}-theme {
 
 md-radio-group.md-#{$theme-name}-theme:focus {
   border-color: $radio-group-focus-border-color;
+}
+
+
+md-slider.md-#{$theme-name}-theme {
+  .slider-track {
+    background-color: $slider-background-color;
+  }
+
+  .slider-track-fill {
+    background-color: $slider-track-color;
+  }
+
+  .slider-thumb:after {
+    border-color: $slider-thumb-color;
+    background-color: $slider-thumb-color;
+  }
+
+  .slider-sign {
+    background-color: $slider-sign-color;
+
+    &:after {
+      border-top-color: $slider-sign-color;
+    }
+  }
+
+  .slider-thumb-text {
+    color: $slider-sign-text-color;
+  }
+
+  .slider-focus-thumb {
+    background-color: $slider-focus-thumb-color;
+  }
+
+  .slider-focus-ring {
+    border-color: $slider-focus-ring-color;
+  }
+
+  .slider-disabled-thumb {
+    border-color: $background-color-base;
+  }
+
+  &.slider-min .slider-thumb:after {
+    background-color: $background-color-base;
+  }
+
+  &[disabled] {
+    .slider-thumb:after {
+      border-color: $slider-disabled-color;
+    }
+    &:not(.slider-min) .slider-thumb:after {
+      background-color: $slider-disabled-color;
+    }
+  }
 }
 
 
