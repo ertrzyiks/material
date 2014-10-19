@@ -14,7 +14,6 @@ $button-padding: 2px 6px 3px;
 // Fab buttons
 $button-fab-width: 56px;
 $button-fab-height: 56px;
-$button-fab-border-radius: 28px;
 $button-fab-padding: 16px;
 $button-fab-toast-offset: $toast-height + $toast-margin;
 
@@ -121,7 +120,7 @@ md-button {
     width: $button-fab-width;
     height: $button-fab-height;
 
-    border-radius: $button-fab-border-radius;
+    border-radius: 50%;
 
     @extend .md-shadow-bottom-z-1;
     border-radius: 50%;
@@ -147,8 +146,8 @@ md-button {
 }
 
 .md-toast-open-top {
-  md-button.md-button-fab-top-left,
-  md-button.md-button-fab-top-right {
+  md-button.md-fab-top-left,
+  md-button.md-fab-top-right {
     transform: translate3d(0, $button-fab-toast-offset, 0);
     &.focus,
     &:hover:not([disabled]) {
@@ -157,8 +156,8 @@ md-button {
   }
 }
 .md-toast-open-bottom {
-  md-button.md-button-fab-bottom-left,
-  md-button.md-button-fab-bottom-right {
+  md-button.md-fab-bottom-left,
+  md-button.md-fab-bottom-right {
     transform: translate3d(0, -$button-fab-toast-offset, 0);
     &.focus,
     &:hover {
