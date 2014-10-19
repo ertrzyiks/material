@@ -3,13 +3,13 @@ $button-fab-border-radius: 50% !default;
 
 $button-primary-color-palette: $primary-color-palette !default;
 $button-primary-color: map-get($button-primary-color-palette, '400') !default;
-$button-primary-raised-color: map-get($background-color-palette, 'A100') !default;
+$button-primary-raised-color: $primary-color-palette-contrast-color !default;
 $button-primary-raised-background-color: map-get($button-primary-color-palette, '500') !default;
 $button-primary-raised-hover-background-color: map-get($button-primary-color-palette, '600') !default;
 
 $button-warn-color-palette: $warn-color-palette !default;
 $button-warn-color: map-get($button-warn-color-palette, '400') !default;
-$button-warn-raised-color: map-get($background-color-palette, 'A100') !default;
+$button-warn-raised-color: $primary-color-palette-contrast-color !default;
 $button-warn-raised-background-color: map-get($button-warn-color-palette, '500') !default;
 $button-warn-raised-hover-background-color: map-get($button-warn-color-palette, '700') !default;
 

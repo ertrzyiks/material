@@ -18,6 +18,7 @@ $background-color-base: map-get($background-color-palette, 'A100') !default;
 
 $primary-color-palette: $color-light-blue !default;
 $warn-color-palette: $color-red !default;
+$primary-color-palette-contrast-color: white !default;
 
 // Font colors
 $text-light: #f1f1f1;

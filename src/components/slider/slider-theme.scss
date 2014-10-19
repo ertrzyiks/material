@@ -3,7 +3,7 @@ $slider-background-color: $foreground-tertiary-color !default;
 $slider-track-color: map-get($slider-color-palette, '500') !default;
 $slider-thumb-color: map-get($slider-color-palette, '500') !default;
 $slider-sign-color: map-get($slider-color-palette, '500') !default;
-$slider-sign-text-color: map-get($foreground-color-palette, 'A100') !default;
+$slider-sign-text-color: $primary-color-palette-contrast-color !default;
 $slider-focus-thumb-color: $foreground-secondary-color !default;
 $slider-focus-ring-color: $foreground-quarternary-color !default;
 $slider-disabled-color: map-get($foreground-color-palette, '400') !default;

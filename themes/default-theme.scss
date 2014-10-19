@@ -306,6 +306,7 @@ $background-color-palette: $color-grey !default;
 $background-color-base: map-get($background-color-palette, 'A100') !default;
 $primary-color-palette: $color-light-blue !default;
 $warn-color-palette: $color-red !default;
+$primary-color-palette-contrast-color: white !default;
 $text-light: #f1f1f1;
 $text-medium: #999;
 $text-dark: #111111;
@@ -416,12 +417,12 @@ $button-border-radius: 3px !default;
 $button-fab-border-radius: 50% !default;
 $button-primary-color-palette: $primary-color-palette !default;
 $button-primary-color: map-get($button-primary-color-palette, '400') !default;
-$button-primary-raised-color: map-get($background-color-palette, 'A100') !default;
+$button-primary-raised-color: $primary-color-palette-contrast-color !default;
 $button-primary-raised-background-color: map-get($button-primary-color-palette, '500') !default;
 $button-primary-raised-hover-background-color: map-get($button-primary-color-palette, '600') !default;
 $button-warn-color-palette: $warn-color-palette !default;
 $button-warn-color: map-get($button-warn-color-palette, '400') !default;
-$button-warn-raised-color: map-get($background-color-palette, 'A100') !default;
+$button-warn-raised-color: $primary-color-palette-contrast-color !default;
 $button-warn-raised-background-color: map-get($button-warn-color-palette, '500') !default;
 $button-warn-raised-hover-background-color: map-get($button-warn-color-palette, '700') !default;
 $button-flat-color-palette: $background-color-palette !default;
@@ -460,7 +461,7 @@ $slider-background-color: $foreground-tertiary-color !default;
 $slider-track-color: map-get($slider-color-palette, '500') !default;
 $slider-thumb-color: map-get($slider-color-palette, '500') !default;
 $slider-sign-color: map-get($slider-color-palette, '500') !default;
-$slider-sign-text-color: map-get($foreground-color-palette, 'A100') !default;
+$slider-sign-text-color: $primary-color-palette-contrast-color !default;
 $slider-focus-thumb-color: $foreground-secondary-color !default;
 $slider-focus-ring-color: $foreground-quarternary-color !default;
 $slider-disabled-color: map-get($foreground-color-palette, '400') !default;
@@ -479,6 +480,8 @@ $tabs-highlight-color: #ffff85;
 $toast-background-color: #323232 !default;
 $toast-text-color: white !default;
 $toast-action-color: map-get($primary-color-palette, 'A200') !default;
+$toolbar-background-color: map-get($primary-color-palette, '500') !default;
+$toolbar-text-color: $primary-color-palette-contrast-color;
 
 // Pink
 // ----------------------------
@@ -1030,4 +1033,10 @@ md-toast.md-#{$theme-name}-theme {
   .md-action {
     color: $toast-action-color;
   }
+}
+
+
+md-toolbar.md-#{$theme-name}-theme {
+  background-color: $toolbar-background-color;
+  color: $primary-color-palette-contrast-color;
 }
