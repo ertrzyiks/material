@@ -11,6 +11,7 @@ $tff-line-focused-width: 2px;
 $tff-line-disabled-width: 0px;
 $tff-line-dot-width: 1px;
 $tff-line-dot-size: 3px;
+$tff-line-dashed: #cfcfcf;
 
 // ******************************
 // Mixins: Text Fields
@@ -42,10 +43,9 @@ $tff-line-dot-size: 3px;
   }
 }
 
-@mixin text-dashed-line( $dotGap, $dotSize, $color ) {
+@mixin text-dashed-line( $dotGap, $dotSize) {
   background-size: $dotSize $dotGap;
 
-  background-image: linear-gradient(to right, $color 0%, $color 50%, rgba(0, 0, 0, 0) 0%);
   background-position: 0 bottom;
 
   background-size: (1px + 1px) $dotGap;
@@ -129,7 +129,7 @@ md-input-group,
 
     @include text-field( false, $tff-line-disabled-width );
     input, textarea {
-      @include text-dashed-line( $tff-line-dot-width, $tff-line-dot-size, $tff-line-dashed );
+      @include text-dashed-line( $tff-line-dot-width, $tff-line-dot-size);
       pointer-events: none;
       tabindex : -1;
     }

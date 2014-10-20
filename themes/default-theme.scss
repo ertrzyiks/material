@@ -307,46 +307,14 @@ $background-color-base: map-get($background-color-palette, 'A100') !default;
 $primary-color-palette: $color-light-blue !default;
 $warn-color-palette: $color-red !default;
 $primary-color-palette-contrast-color: white !default;
-$text-light: #f1f1f1;
-$text-medium: #999;
-$text-dark: #111111;
-$theme-textfield-focus-label: #1b1b1b;
-$theme-textfield-focus-border: #1394F5;
-$theme-gray: #444;
-$theme-light: #4285f4;
-$theme-light-blue: #03a9f4;
-$theme-dark: #3f51b5;
-$theme-green: #0f9d58;
-$theme-yellow: #ffeb3b;
-$theme-orange: #ff5722;
-$theme-purple: #9c27b0;
-$theme-red: #db4437;
-$theme-indigo: #3e50b4;
-$h1-font-size-base: 2em !default;
-$h1-margin-base: 0.67em 0 !default;
-$h2-font-size-base: 1.5em !default;
-$h2-margin-base: 0.83em 0 !default;
-$h3-font-size-base: 1.17em !default;
-$h3-margin-base: 1em 0 !default;
-$h4-font-size-base: 1em !default;
-$h4-margin-base: 1.33em 0 !default;
-$h5-font-size-base: 0.83em !default;
-$h5-margin-base: 1.67em 0 !default;
-$h6-font-size-base: 0.75em !default;
-$h6-margin-base: 2.33em 0 !default;
 $baseline-grid:            8px !default;
 $layout-breakpoint-sm:     600px !default;
 $layout-breakpoint-md:     960px !default;
 $layout-breakpoint-lg:     1200px !default;
 $layout-gutter-width:      ($baseline-grid * 2) !default;
-$toast-height: $baseline-grid * 3;
-$toast-margin: $baseline-grid * 1;
 $app-bar-height: 64px;
-$toolbar-tools-height: 64px;
-$toolbar-height: 64px;
-$toolbar-medium-tall-height: 88px;
-$toolbar-tall-height: 192px;
-$toolbar-indent-margin: 64px;
+$toast-height: $baseline-grid * 3 !default;
+$toast-margin: $baseline-grid * 1 !default;
 $whiteframe-shadow-z1: 0px 2px 5px 0 rgba(0,0,0,0.26);
 $whiteframe-zindex-z1: 1;
 $whiteframe-shadow-z2: 0px 8px 17px rgba(0,0,0,0.2);
@@ -357,17 +325,6 @@ $whiteframe-shadow-z4: 0px 16px 28px 0 rgba(0,0,0,0.22);
 $whiteframe-zindex-z4: 4;
 $whiteframe-shadow-z5: 0px 27px 24px 0 rgba(0,0,0,0.2);
 $whiteframe-zindex-z5: 5;
-$input-font-size: 0.75em;
-$input-line-height: 26px;
-$input-placeholder-color: darken($text-light, 30%);
-$input-color: $text-dark;
-$input-color-inverted: $text-light;
-$input-group-margin: 10px 0 10px 0;
-$input-label-focused-font-size: 0.7em;
-$input-label-focused-color: $text-dark;
-$input-focused-scale: 0.85;
-$input-label-transition: all ease-out 300ms;
-$input-focused-border-color: $text-dark;
 $z-index-dialog: 10;
 $z-index-toast: 9;
 $z-index-sidenav: 8;
@@ -450,6 +407,7 @@ $tff-text-color: $foreground-primary-color !default;
 $tff-hint-small-color: mix($foreground-secondary-color, $foreground-tertiary-color, 40%) !default;
 $tff-hint-color: $foreground-tertiary-color !default;
 $tff-line-color: $foreground-quarternary-color !default;
+$tff-disabled-line-color: mix($foreground-tertiary-color, $foreground-quarternary-color) !default;
 $tff-disabled-color: $foreground-quarternary-color !default;
 $toast-background-color: #323232 !default;
 $toast-text-color: white !default;
@@ -550,46 +508,15 @@ $tooltip-background-color: rgba(black, 0.52);
 
 
 
-// Font colors
-
-// Theme colors
-
-
-
-
-
-
-
-
-
-
-
-
 // Layout
 // ------------------------------
 
 
-// Toast
-//--------------------------------------------
-
 
 // App bar variables
 
-// Toolbar variables
-
-// Side nav variables
-
 
 // Whiteframes
-
-
-// Forms and inputs
-
-
-
-
-
-
 
 
 
@@ -962,6 +889,7 @@ md-input-group.md-#{$theme-name}-theme {
     input, textarea {
       border-bottom-color: $tff-disabled-color;
       color: $tff-hint-color;
+      background-image: linear-gradient(to right, $tff-disabled-line-color 0%, $tff-disabled-line-color 50%, rgba(0, 0, 0, 0) 0%);
     }
   }
 }
