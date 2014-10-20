@@ -170,7 +170,7 @@ gulp.task('build-themes', ['build-default-theme'], function() {
   var stream = mergeStream();
   var themes = glob('themes/*.scss', { cwd: __dirname });
   themes.forEach(function(themeFile) {
-    var name = themeFile.match(/(\w+)-theme\.scss/)[1];
+    var name = themeFile.match(/((\w|-)+)-theme\.scss/)[1];
     stream.add(buildTheme(name));
   });
   return stream;
