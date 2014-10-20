@@ -218,15 +218,6 @@ input {
 .md-theme-dark { @include theme-bg-and-color($theme-dark, $text-light); }
 
 
-.md-theme-light { @include theme-bg-and-color($theme-light, $text-light); }
-.md-theme-light-blue { @include theme-bg-and-color($theme-light-blue, $text-light); }
-.md-theme-indigo { @include theme-bg-and-color($theme-indigo, $text-light); }
-.md-theme-green { @include theme-bg-and-color($theme-green, $text-light); }
-.md-theme-yellow { @include theme-bg-and-color($theme-yellow, $text-dark); }
-.md-theme-orange { @include theme-bg-and-color($theme-orange, $text-light); }
-.md-theme-purple { @include theme-bg-and-color($theme-purple, $text-light); }
-.md-theme-red { @include theme-bg-and-color($theme-red, $text-light); }
-
 .md-input-group-theme-light { @include theme-input-text-and-border($theme-light); }
 .md-input-group-theme-light-blue { @include theme-input-text-and-border($theme-light-blue); }
 .md-input-group-theme-dark { @include theme-input-text-and-border($theme-dark); }

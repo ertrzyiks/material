@@ -482,6 +482,8 @@ $toast-text-color: white !default;
 $toast-action-color: map-get($primary-color-palette, 'A200') !default;
 $toolbar-background-color: map-get($primary-color-palette, '500') !default;
 $toolbar-text-color: $primary-color-palette-contrast-color;
+$tooltip-color: map-get($foreground-color-palette, 'A100') !default;
+$tooltip-background-color: rgba(black, 0.1);
 
 // Pink
 // ----------------------------
@@ -1039,4 +1041,12 @@ md-toast.md-#{$theme-name}-theme {
 md-toolbar.md-#{$theme-name}-theme {
   background-color: $toolbar-background-color;
   color: $primary-color-palette-contrast-color;
+}
+
+
+md-tooltip.md-#{$theme-name}-theme {
+  color: $tooltip-color;
+  .tooltip-background {
+    background-color: $tooltip-background-color;
+  }
 }
