@@ -4,8 +4,12 @@
  * @description
  * Form
  */
-angular.module('material.components.textField', ['material.core'])
+angular.module('material.components.textField', [
+  'material.core',
+  'material.services.theming'
+])
   .directive('mdInputGroup', [
+    '$mdTheming',
     mdInputGroupDirective
   ])
   .directive('mdInput', [
@@ -29,9 +33,10 @@ angular.module('material.components.textField', ['material.core'])
  * </md-input-group>
  * </hljs>
  */
-function mdInputGroupDirective() {
+function mdInputGroupDirective($mdTheming) {
   return {
     restrict: 'CE',
+    link: $mdTheming,
     controller: ['$element', function($element) {
       this.setFocused = function(isFocused) {
         $element.toggleClass('md-input-focused', !!isFocused);

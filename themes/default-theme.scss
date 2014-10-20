@@ -357,38 +357,6 @@ $whiteframe-shadow-z4: 0px 16px 28px 0 rgba(0,0,0,0.22);
 $whiteframe-zindex-z4: 4;
 $whiteframe-shadow-z5: 0px 27px 24px 0 rgba(0,0,0,0.2);
 $whiteframe-zindex-z5: 5;
-$tff-font-size: 0.75em;
-$tff-line-height:26px;
-$tff-margin: 10px 0 10px 0;
-$tff-placeholder-color: darken($text-light, 30%);
-$tff-transition: all ease-out 150ms;
-$tff-hint-offset-large : 22px;
-$tff-hint-offset-small : 4px;
-$ttf-hint-offset-scale : 0.75;
-$tff-hint-normal: #999;
-$tff-hint-focused: #EE008B;
-$tff-hint-disabled: #b0b0b0;
-$tff-input-normal: #2f2f2f;
-$tff-input-focused: #EE008B;
-$tff-input-disabled: #bcbcbc;
-$tff-line-focused-width: 2px;
-$tff-line-disabled-width: 0px;
-$tff-line-dot-width: 1px;
-$tff-line-dot-size: 3px;
-$tff-line-normal: #c7c7c7;
-$tff-line-focused: #EE008B;
-$tff-line-disabled: #bcbcbc;
-$tff-line-dashed: #cfcfcf;
-$tff-hint-normal-dark: #5d5d5d;
-$tff-hint-focused-dark: #1194f6;
-$tff-hint-disabled-dark: #858585;
-$tff-input-normal-dark: #d6d6d6;
-$tff-input-focused-dark: #d6d6d6;
-$tff-input-disabled-dark: #5d5d5d;
-$tff-line-normal-dark: #4c4c4c;
-$tff-line-focused-dark: #1194f6;
-$tff-line-disabled-dark: #333333;
-$tff-line-dashed-dark: #525252;
 $input-font-size: 0.75em;
 $input-line-height: 26px;
 $input-placeholder-color: darken($text-light, 30%);
@@ -477,6 +445,12 @@ $tabs-active-color: map-get($foreground-color-palette, 'A100') !default;
 $tabs-disabled-color: $foreground-quarternary-color !default;
 $tabs-focus-color: $foreground-primary-color !default;
 $tabs-highlight-color: #ffff85;
+$tff-focus-color: map-get($primary-color-palette, '500') !default;
+$tff-text-color: $foreground-primary-color !default;
+$tff-hint-small-color: mix($foreground-secondary-color, $foreground-tertiary-color, 40%) !default;
+$tff-hint-color: $foreground-tertiary-color !default;
+$tff-line-color: $foreground-quarternary-color !default;
+$tff-disabled-color: $foreground-quarternary-color !default;
 $toast-background-color: #323232 !default;
 $toast-text-color: white !default;
 $toast-action-color: map-get($primary-color-palette, 'A200') !default;
@@ -609,29 +583,6 @@ $tooltip-background-color: rgba(black, 0.52);
 // Whiteframes
 
 
-// SubHeader
-
-
-
-
-
-// ***********************************
-// Styles for Floating Label Text Fields
-// - Light Theme -
-// ***********************************
-//
-// - `label` element (aka hint)
-// - `input` element
-// - `line` element
-
-// ***********************************
-// Styles for Floating Label Text Fields
-// - Light Theme -
-// ***********************************
-// - `label` element (aka hint)
-// - `input` element
-// - `line` element
-
 // Forms and inputs
 
 
@@ -665,52 +616,6 @@ $tooltip-background-color: rgba(black, 0.52);
   &::-webkit-input-placeholder {
     color: $color;
   }
-}
-
-
-
-// ******************************
-// Mixins: Text Fields
-// ******************************
-
-@mixin text-field($color, $borderColor, $transition:false, $borderWidth:1px ) {
-  input, textarea {
-    color: $color;
-    border-color: $borderColor;
-    border-bottom-width: $borderWidth;
-
-    @if( $transition != false ) {
-      transition: $transition;
-    }
-  }
-}
-
-@mixin text-hint($color, $size:large, $transition:false ) {
-  label {
-    color: $color;
-
-    @if $size == "small" {
-      transform: translate3d(0, $tff-hint-offset-small, 0) scale($ttf-hint-offset-scale);
-    } @else {
-      transform: translate3d(0, $tff-hint-offset-large, 0);
-      transform-origin: left center;
-      transition: $tff-transition;
-    }
-
-    @if( $transition != false ) {
-      transition: $transition;
-    }
-  }
-}
-
-@mixin text-dashed-line( $dotGap, $dotSize, $color ) {
-  background-size: $dotSize $dotGap;
-
-  background-image: linear-gradient(to right, $color 0%, $color 50%, rgba(0, 0, 0, 0) 0%);
-  background-position: 0 bottom;
-
-  background-size: (1px + 1px) $dotGap;
-  background-repeat: repeat-x;
 }
 
 
@@ -1019,6 +924,44 @@ md-tabs.md-#{$theme-name}-theme {
 
     .md-ripple-container {
       color: $tabs-highlight-color;
+    }
+  }
+}
+
+
+md-input-group.md-#{$theme-name}-theme {
+  input, textarea {
+    @include input-placeholder($tff-hint-color);
+  }
+
+  label {
+    color: $tff-hint-color;
+  }
+
+  input, textarea {
+    color: $tff-text-color;
+    border-color: $tff-line-color;
+  }
+
+  &.md-input-focused {
+    input, textarea {
+      border-color: $tff-focus-color;
+    }
+    label {
+      color: $tff-focus-color;
+    }
+  }
+
+  &.md-input-has-value:not(.md-input-focused) {
+    label {
+      color: $tff-hint-small-color;
+    }
+  }
+
+  &[disabled] {
+    input, textarea {
+      border-bottom-color: $tff-disabled-color;
+      color: $tff-hint-color;
     }
   }
 }
